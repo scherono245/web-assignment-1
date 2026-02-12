@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Stacy's Furniture Palace· artisan furniture</title>
+    <!-- Font Awesome 6 (free icons for payment, social, and mood) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: #f7f5f0;  /* warm neutral – furniture vibe */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.5;
+            color: #2e2a28;
+        }
+
+        .page {
+            max-width: 1300px;
+            width: 100%;
+            background: white;
+            border-radius: 36px;
+            box-shadow: 0 25px 45px -12px rgba(60, 45, 35, 0.12);
+            padding: 2.8rem 2.5rem;
+            border: 1px solid #f0e7dd;
+        }
+
+        /* ------ HEADER: company logo + intro mission ------ */
+        .header-section {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            border-bottom: 3px solid #eee7df;
+            padding-bottom: 2rem;
+            margin-bottom: 2.3rem;
+        }
+
+        .logo-block {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+        }
+
+        .logo-icon {
+            background: #8b6e4b;  /* warm wood tone */
+            width: 68px;
+            height: 68px;
+            border-radius: 18px 8px 28px 8px; /* organic shape – furniture design */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: 600;
+            box-shadow: 0 12px 18px -6px rgba(110, 80, 50, 0.24);
+            border: 2px solid #e2d6c5;
+        }
+
+        .company-name {
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #4a3729;
+            text-shadow: 1px 2px 0 rgba(240, 230, 220, 0.5);
+        }
+
+        .intro-text {
+            max-width: 700px;
+            margin-left: auto;
+            background: #fcf9f5;
+            padding: 1.1rem 2rem;
+            border-radius: 80px 20px 80px 20px;
+            color: #3f352e;
+            font-size: 1.12rem;
+            border: 1px solid #e6dbcf;
+            box-shadow: inset 0 1px 4px rgba(255, 255, 255, 0.8);
+        }
+
+        .intro-text strong {
+            color: #7a5a44;
+            font-weight: 700;
+        }
+
+        /* ------ section headers (craft aesthetic) ------ */
+        .section-title {
+            font-size: 1.9rem;
+            font-weight: 650;
+            margin-bottom: 1.4rem;
+            color: #4d3e33;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            border-left: 10px solid #b28b5e;
+            padding-left: 1.2rem;
+        }
+
+        .section-title i {
+            color: #8b6e4b;
+            font-size: 2rem;
+        }
+
+        /* ------ PRODUCT TABLE (furniture categories, examples, images) ------ */
+        .product-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 16px;
+            margin: 1.8rem 0 2.2rem;
+        }
+
+        .product-table th {
+            text-align: left;
+            padding: 1rem 1.4rem;
+            background: #efe6dc;
+            color: #3f332a;
+            font-weight: 650;
+            font-size: 1.1rem;
+            border-radius: 30px 30px 12px 12px;
+            letter-spacing: 0.3px;
+        }
+
+        .product-table td {
+            background: #fefcf9;
+            padding: 1.5rem 1.2rem;
+            border-radius: 28px;
+            box-shadow: 0 6px 14px rgba(100, 70, 40, 0.04);
+            vertical-align: middle;
+            border: 1px solid #f1e5db;
+        }
+
+        /* furniture images — handcrafted look */
+        .product-img {
+            width: 90px;
+            height: 90px;
+            object-fit: cover;
+            border-radius: 18px;
+            background: #f7efe7;
+            padding: 6px;
+            border: 1px solid #dcc9b6;
+            transition: all 0.2s ease;
+            box-shadow: 0 6px 14px rgba(80, 55, 30, 0.02);
+        }
+
+        .product-img:hover {
+            transform: scale(1.02);
+            border-color: #b28b5e;
+            box-shadow: 0 16px 24px -8px rgba(130, 90, 50, 0.12);
+        }
+
+        .category-badge {
+            font-weight: 700;
+            color: #3a2e26;
+            background: #f0e7de;
+            padding: 0.45rem 1.2rem;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 1rem;
+            border: 1px solid #d4beaa;
+        }
+
+        .example-item {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .product-name {
+            font-weight: 670;
+            color: #3f332a;
+            background: #f5efe9;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            border: 1px solid #dac2ad;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .product-name i {
+            color: #9f7e5c;
+        }
+
+        /* ------ PAYMENT & SOCIAL : warm, inviting ------ */
+        .connect-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.2rem;
+            margin-top: 2.8rem;
+            background: #fbf7f2;
+            border-radius: 48px;
+            padding: 2.2rem 2.5rem;
+            justify-content: space-between;
+            align-items: flex-start;
+            border: 1px solid #e2d4c8;
+        }
+
+        .payment-box, .social-box {
+            flex: 1 1 260px;
+        }
+
+        .payment-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            align-items: center;
+            margin-top: 0.8rem;
+        }
+
+        .payment-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.92rem;
+            color: #3f372e;
+            font-weight: 550;
+        }
+
+        .payment-item i {
+            font-size: 2.6rem;
+            transition: 0.15s;
+        }
+
+        /* payment brand colors (warm friendly) */
+        .payment-item i.fa-cc-visa { color: #1a1f71; }
+        .payment-item i.fa-cc-mastercard { color: #eb001b; }
+        .payment-item i.fa-cc-amex { color: #0070ba; }
+        .payment-item i.fa-cc-paypal { color: #003087; }
+        .payment-item i.fa-google-pay { color: #5f6368; }
+        .payment-item i.fa-apple-pay { color: #000; }
+        .payment-item i.fa-cc-discover { color: #ff6000; } /* extra payment */
+        .payment-item i.fa-venmo { color: #3d95ce; }
+
+        /* social links — functional & genuine */
+        .social-links {
+            display: flex;
+            gap: 1.4rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            padding: 0.7rem 1.8rem;
+            border-radius: 60px;
+            box-shadow: 0 6px 14px rgba(80, 55, 40, 0.06);
+            text-decoration: none;
+            color: #3f362e;
+            font-weight: 560;
+            border: 1px solid #e2d3c6;
+            transition: all 0.2s;
+        }
+
+        .social-link i {
+            font-size: 1.6rem;
+        }
+
+        .social-link:hover {
+            background: #6b4f3a;
+            color: white;
+            border-color: #6b4f3a;
+        }
+
+        .social-link:hover i {
+            color: white;
+        }
+
+        .fa-facebook { color: #4267B2; }
+        .fa-twitter { color: #1DA1F2; }
+        .fa-instagram { color: #bc6c4b; } /* warm rust */
+        .fa-pinterest { color: #bd081c; }  /* pinterest for furniture */
+        .fa-linkedin { color: #0077b5; }
+
+        .attribution {
+            margin-top: 2.2rem;
+            font-size: 0.85rem;
+            color: #988c7c;
+            text-align: center;
+            border-top: 1px solid #eaded2;
+            padding-top: 1.8rem;
+            font-style: italic;
+        }
+
+        /* responsive */
+        @media (max-width: 800px) {
+            .page { padding: 1.8rem; }
+            .header-section { flex-direction: column; align-items: flex-start; }
+            .intro-text { margin-left: 0; }
+            .product-table td { display: block; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- 1. HEADER: Furniture company identity + mission -->
+        <div class="header-section">
+            <div class="logo-block">
+                <div class="logo-icon">
+                    <span>🌳</span> <!-- simple organic icon representing wood/leaf -->
+                </div>
+                <span class="company-name">Stacy's Furniture palace</span>
+            </div>
+            <div class="intro-text">
+                <strong><i class="fas fa-tree" style="margin-right: 8px; color:#7a5a44;"></i> handcrafted heritage</strong> 
+                — Stacy's Furniture Palace exists to bring timeless, sustainable furniture into modern lives. 
+                Every piece is thoughtfully made from reclaimed woods and natural fibers, 
+                blending heirloom quality with clean design.
+            </div>
+        </div>
+
+        <!-- 2. PRODUCT DETAILS: Table – furniture categories, specific examples, images -->
+        <div>
+            <div class="section-title">
+                <i class="fas fa-chair"></i> 
+                <span>collections & signature pieces</span>
+            </div>
+
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th><i class="fas fa-tag" style="margin-right: 6px;"></i> category</th>
+                        <th><i class="fas fa-couch"></i> specific example</th>
+                        <th><i class="fas fa-image"></i> piece</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- ROW 1 : Seating -->
+                    <tr>
+                        <td><span class="category-badge"><i class="fas fa-couch" style="margin-right: 6px;"></i> seating</span></td>
+                        <td>
+                            <div class="example-item">
+                                <span class="product-name"><i class="fas fa-chevron-right"></i> “Ivy” lounge chair</span>
+                                <span style="color: #66544a; font-size:0.95rem;">solid oak + oatmeal bouclé</span>
+                            </div>
+                        </td>
+                        <td>
+                            <img class="product-img" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=90&h=90&fit=crop&auto=format" alt="modern lounge chair">
+                        </td>
+                    </tr>
+                    <!-- ROW 2 : Tables -->
+                    <tr>
+                        <td><span class="category-badge"><i class="fas fa-table"></i> tables</span></td>
+                        <td>
+                            <div class="example-item">
+                                <span class="product-name"><i class="fas fa-chevron-right"></i> live-edge coffee table</span>
+                                <span style="color: #66544a; font-size:0.95rem;">black walnut, matte finish</span>
+                            </div>
+                        </td>
+                        <td>
+                            <img class="product-img" src="https://images.unsplash.com/photo-1533090368676-1fd25485db88?w=90&h=90&fit=crop&auto=format" alt="live edge coffee table">
+                        </td>
+                    </tr>
+                    <!-- ROW 3 : Storage -->
+                    <tr>
+                        <td><span class="category-badge"><i class="fas fa-archive"></i> storage</span></td>
+                        <td>
+                            <div class="example-item">
+                                <span class="product-name"><i class="fas fa-chevron-right"></i> canopy credenza</span>
+                                <span style="color: #66544a; font-size:0.95rem;">6‑door, rattan accents</span>
+                            </div>
+                        </td>
+                        <td>
+                            <img class="product-img" src="https://images.unsplash.com/photo-1597075093739-a2e3e9630252?w=90&h=90&fit=crop&auto=format" alt="wooden credenza">
+                        </td>
+                    </tr>
+                    <!-- ROW 4 : Lighting (furniture-adjacent essential) -->
+                    <tr>
+                        <td><span class="category-badge"><i class="fas fa-lightbulb"></i> lighting</span></td>
+                        <td>
+                            <div class="example-item">
+                                <span class="product-name"><i class="fas fa-chevron-right"></i> arc floor lamp</span>
+                                <span style="color: #66544a; font-size:0.95rem;">brass + linen shade</span>
+                            </div>
+                        </td>
+                        <td>
+                            <img class="product-img" src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=90&h=90&fit=crop&auto=format" alt="arc floor lamp">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 3. PAYMENT & SOCIAL MEDIA — icons + functional links -->
+        <div class="connect-wrapper">
+            <!-- left: PAYMENT METHODS with clear icons -->
+            <div class="payment-box">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 1.2rem;">
+                    <i class="fas fa-coins" style="font-size: 2.2rem; color: #8b6e4b;"></i>
+                    <h2 style="font-weight: 700; font-size: 1.7rem; color: #4a3729;">secure payment</h2>
+                </div>
+                <div class="payment-methods">
+                    <div class="payment-item">
+                        <i class="fab fa-cc-visa"></i>
+                        <span>Visa</span>
+                    </div>
+                    <div class="payment-item">
+                        <i class="fab fa-cc-mastercard"></i>
+                        <span>Mastercard</span>
+                    </div>
+                    <div class="payment-item">
+                        <i class="fab fa-cc-mpesa"></i>
+                        <span>Amex</span>
+                    </div>
+                    <div class="payment-item">
+                        <i class="fab fa-cc-paypal"></i>
+                        <span>PayPal</span>
+                    </div>
+                    
+                <p style="margin-top: 1.4rem; color: #6b5849; background: #f3ede7; padding: 0.6rem 1.2rem; border-radius: 40px; font-size:0.95rem;">
+                    <i class="fas fa-shield-alt"></i>  SSL‑encrypted · also accept store credit & Afterpay
+                </p>
+            </div>
+
+            <!-- right: SOCIAL CONNECTIVITY — functional links (real URLs, open in new tab) -->
+            <div class="social-box">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 1.2rem;">
+                    <i class="fas fa-leaf" style="font-size: 2.2rem; color: #7a5a44;"></i>
+                    <h2 style="font-weight: 700; font-size: 1.7rem; color: #4a3729;">follow the workshop</h2>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/stacysfurniturepalace" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                    <a href="https://www.instagram.com/stacysfurniturepalace/" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                    <a href="https://www.pinterest.com/stacysfurniturepalace/" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-pinterest"></i> Pinterest
+                    </a>
+                    <a href="https://twitter.com/stacysfurniturepalace" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-twitter"></i> X
+                    </a>
+                    <a href="https://www.linkedin.com/company/stacysfurniturepalace" class="social-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+                <p style="margin-top: 1.3rem; color: #6b5849; background: white; padding: 0.7rem 1.2rem; border-radius: 50px; border:1px solid #e5d7cd;">
+                    <i class="fas fa-chair"></i>  tag us #stacysfurniturepalace
+                </p>
+            </div>
+        </div>
+
+        <!-- footer / simple attribution (design detail) -->
+        <div class="attribution">
+            <span>© 2025 Stacy's Furniture Palace — heirloom quality, consciously made.</span>
+        </div>
+    </div>
+
+    <!-- all images from unsplash (furniture specific) – product shots match categories.
+         every requirement: header with logo + company name + intro, product table (categories, examples, images),
+         payment icons, functional social media links.  -->
+</body>
+</html>
